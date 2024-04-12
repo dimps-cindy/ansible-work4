@@ -15,7 +15,7 @@
       when: ansible_distribution == "Ubuntu"
 
     - name: Install HTTPD on CentOS
-      dnfu:
+      dnf:
         name: httpd
         state: present
       when: ansible_distribution == "CentOS"
