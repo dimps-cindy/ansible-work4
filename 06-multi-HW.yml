@@ -1,8 +1,9 @@
 ---
 - name: Install Http server
-  hosts: n6
+  hosts: g3
   become: yes
 
+hosts: n6
   tasks:
     - name: Install HTTPD
       yum:
@@ -19,7 +20,6 @@
         name: httpd
         enabled: yes
 
-- name: Tasks for n5
   hosts: n5
   tasks:
     - name: Install Apache2
@@ -37,7 +37,6 @@
         name: apache2
         enabled: yes
 
-- name: Tasks for n7
   hosts: n7
   tasks:
     - name: Install HTTPD on CentOS
