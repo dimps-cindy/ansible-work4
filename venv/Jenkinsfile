@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages{
+        stage('Git Checkout'){
+            steps{
+                git 'https://github.com/dimps-cindy/ansible-work4.git'
+            }
+        }
+        
+        stage('Run Ansible script'){
+            steps{
+                ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'app.py', playbook: 'apache.yml', vaultTmpPath: ''
+            }
+        }
+    }    
+}
